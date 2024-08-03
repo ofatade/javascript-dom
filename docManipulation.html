@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .product {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .product h2 {
+            margin-top: 0;
+        }
+        .product p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product List</h1>
+    <div id="product-list"></div>
+
+    <script>
+        // Task 1: Array containing product information
+        const products = [
+            { name: "Laptop", price: 1000, description: "A high performance laptop." },
+            { name: "Smartphone", price: 500, description: "A powerful smartphone with excellent camera." },
+            { name: "Tablet", price: 300, description: "A versatile tablet for work and play." },
+            { name: "Headphones", price: 100, description: "Noise-cancelling over-ear headphones." }
+        ];
+
+        // Task 2: Function to display product information on the webpage
+        function displayProducts() {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = ''; // Clear existing content
+
+            products.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product';
+
+                const productTitle = document.createElement('h2');
+                productTitle.textContent = product.name;
+                productDiv.appendChild(productTitle);
+
+                const productPrice = document.createElement('p');
+                productPrice.textContent = `Price: $${product.price}`;
+                productDiv.appendChild(productPrice);
+
+                const productDescription = document.createElement('p');
+                productDescription.textContent = product.description;
+                productDiv.appendChild(productDescription);
+
+                productList.appendChild(productDiv);
+            });
+        }
+
+        // Task 3: Event listener to display products when the page loads
+        window.addEventListener('load', displayProducts);
+    </script>
+</body>
+</html>
